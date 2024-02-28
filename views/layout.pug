@@ -1,0 +1,15 @@
+block variables
+
+doctype html
+html
+  head
+    title=title
+    link(rel='stylesheet', href='/app.css')
+    script(src="app.js")
+
+  body
+    //- include ./partials/navigation.pug
+
+    .content#content(data-template=template)
+      block content
+        

@@ -1,0 +1,7 @@
+%description-12 {
+  font-size: 3rem;
+
+  @include media('<phone') {
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,79 @@
+.experiences {
+    width: 100%;
+
+}
+
+.experience__wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    // height: 8.625rem;
+    padding: 2.313rem 4.063rem;
+
+    &[data-border-bottom=true] {
+        border-bottom: 1px solid;
+    }
+    &[data-pro=pro] {
+        border-color:  $color-limed-spruce;
+        color: $color-limed-spruce;
+    }
+    &[data-pro=portfolio] {
+        border-color: $color-light;
+        background-color: $color-limed-spruce;
+        color: $color-light ;
+    }
+}
+
+.experience__title {
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.experience__name {
+    @extend %title-40;
+    white-space: nowrap;
+    letter-spacing: -1px;
+}
+
+.experience__index {
+   @extend %numeroation-09;
+   &[data-pro=pro] {
+        -webkit-text-stroke-color: $color-limed-spruce;
+    }
+    &[data-pro=portfolio] {
+        -webkit-text-stroke-color: $color-light;
+    }
+   margin-bottom: 0.375rem;
+}
+
+.experience__works {
+    display: none;
+}
+
+.experience__work {
+    @extend %text-01;
+    font-weight: 700;
+    display: none;
+
+}
+
+.experience__points {
+    display: none;
+
+} 
+
+.experience__points__item {
+    @extend %text-01;
+
+
+}
+
+.experience__descriptions {
+    display: none;
+
+} 
+
+.experience__descriptions__item {
+    @extend %text-01;
+}

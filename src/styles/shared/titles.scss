@@ -1,0 +1,51 @@
+%title-40 {
+  font-family: $font-krona-one;
+  font-size: 4rem;
+  text-transform: uppercase;
+
+  @include media('<phone') {
+    font-size: 4.8rem;
+  }
+}
+
+%numeroation-40 {
+  font-family: $font-kumar-one;
+  font-size: 4rem;
+  color: transparent;
+  -webkit-text-stroke-color: $color-limed-spruce;
+  -webkit-text-stroke-width: 0.33px;
+  @include media('<phone') {
+    font-size: 4.8rem;
+  }
+}
+
+%numeroation-09 {
+  font-family: $font-kumar-one;
+  font-size: 0.94rem;
+  color: transparent;
+  -webkit-text-stroke-color: $color-limed-spruce;
+  -webkit-text-stroke-width: 1px;
+
+  @include media('<phone') {
+    font-size: 4.8rem;
+  }
+}
+
+%text-01 {
+  font-family: $font-kanit;
+  font-size: 1rem;
+
+  @include media('<phone') {
+    font-size: 4.8rem;
+  }
+}
+
+%text-026 {
+  font-family: $font-kanit;
+  font-size: 2.66rem;
+  font-weight: 400;
+
+  @include media('<phone') {
+    font-size: 4.8rem;
+  }
+}

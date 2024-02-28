@@ -1,0 +1,17 @@
+block content
+   .experiences
+      each experience, index in experiences
+         .experience__wrapper(data-pro=`${experience.data.type}`, data-border-bottom=`${index < experiences.length - 1}` )
+            .experience__works 
+               .experience__work=experience.data.work
+               .experience__points 
+                  each point, index in experience.data.points
+                     span.experience__points__item=point.point
+                     if index < experience.data.points.length - 1 
+                        span /
+            .experience__descriptions 
+               each description in experience.data.descriptions
+                  .experience__descriptions__item=description.description
+            .experience__title
+               .experience__name=experience.data.name
+               .experience__index(data-pro=`${experience.data.type}`)=`${Numbers(experience.index)}.`
