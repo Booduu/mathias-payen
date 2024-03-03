@@ -29,7 +29,9 @@
     "morgan": "~1.9.1",
     "node-fetch": "^2.6.1",
     "nodemon": "^3.0.2",
+    "normalize-wheel": "^1.0.1",
     "postcss": "^8.4.32",
+    "prefix": "^1.0.0",
     "pug": "^3.0.2"
   },
   "devDependencies": {

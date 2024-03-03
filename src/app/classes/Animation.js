@@ -1,12 +1,11 @@
 import Page from '../classes/Page'
 
-export default class Users extends Page {
+export default class Animation extends Component {
   constructor() {
     super()
   }
-  
+
   create() {
-    console.log(' this users');
-    
+    console.log('Experiences')
   }
 }
