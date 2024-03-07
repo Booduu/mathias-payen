@@ -11,6 +11,7 @@ export default class Page {
     this.selectorChildren = {
       ...elements
     }
+
     this.transformPrefix = Prefix('transform')
   }
 
@@ -49,6 +50,13 @@ export default class Page {
   }
 
   update() {
+    // infinite scroll on y
+    if (this.scroll.current > this.scroll.target) {
+      this.direction = 'up'
+    } else if (this.scroll.current < this.scroll.target) {
+      this.direction = 'down'
+    }
+
     this.scroll.target = GSAP.utils.clamp(
       0,
       this.scroll.limit,

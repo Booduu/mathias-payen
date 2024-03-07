@@ -1,6 +1,5 @@
 import Page from '../classes/Page'
-import Experience from '../components/Experiences'
-
+import Experiences from '../components/Experiences'
 export default class Home extends Page {
   constructor() {
     super({
@@ -13,5 +12,20 @@ export default class Home extends Page {
 
   create() {
     super.create()
+    this.experiences = new Experiences()
+  }
+
+  onResize() {
+    if (this.experiences && this.experiences.handleBounds) {
+      this.experiences.handleBounds()
+    }
+  }
+
+  update() {
+    super.update()
+    // console.log('hhhhh', this.scroll)
+    if (this.experiences && this.experiences.update) {
+      this.experiences.update({ direction: this.direction })
+    }
   }
 }

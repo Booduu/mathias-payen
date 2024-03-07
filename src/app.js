@@ -78,8 +78,15 @@ class App {
     }
   }
 
+  onResize() {
+    if (this.page && this.page.onResize) {
+      this.page.onResize()
+    }
+  }
+
   addEventListeners() {
     window.addEventListener('mousewheel', this.onWheel.bind(this))
+    window.addEventListener('resize', this.onResize.bind(this))
   }
 
   update() {
