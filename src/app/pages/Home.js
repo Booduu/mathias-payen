@@ -22,10 +22,14 @@ export default class Home extends Page {
   }
 
   update() {
+
     super.update()
     // console.log('hhhhh', this.scroll)
     if (this.experiences && this.experiences.update) {
-      this.experiences.update({ direction: this.direction })
+      this.experiences.update({
+        direction: this.direction,
+        scroll: this.scroll
+      })
     }
   }
 }

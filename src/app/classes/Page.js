@@ -23,7 +23,7 @@ export default class Page {
       current: 0,
       target: 0,
       last: 0,
-      limit: 1000
+      limit: 0
     }
 
     each(this.selectorChildren, (entry, key) => {

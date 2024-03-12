@@ -1,22 +1,18 @@
 import Animation from '../classes/Animation'
 
 export default class Experience extends Animation {
-  constructor(element, elements, parent) {
+  constructor(element, index) {
     super({ element })
     this.element = element
-    this.elements = elements
-    this.parent = parent
-
-    // this.handleElements = handleElements
-
-    this.create()
+    this.index = index
   }
 
-  animateOut(entry, index) {
-    let clone = entry.target.cloneNode(true)
-    this.parent.appendChild(clone)
-    this.elements = Array.from(this.elements).push(clone)
-    this.createObserver()
+  animateOut(entry) {
+    // this.cloneElement(entry.target)
+    // this.createObserver()
+    // let clone = entry.target.cloneNode(true)
+    // this.parent.appendChild(clone)
+    // this.elements = Array.from(this.elements).push(clone)
   }
 
   animateIn(entry) {
@@ -24,8 +20,10 @@ export default class Experience extends Animation {
   }
 
   create() {
-    console.log('element', this.element)
+    console.log('element')
   }
 
-  update() {}
+  update() {
+    console.log('XP upda')
+  }
 }

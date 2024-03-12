@@ -8,6 +8,11 @@ export default class Experiences {
   constructor() {
     this.element = document.querySelector('.experiences')
     this.elements = document.querySelectorAll('.experience__wrapper')
+    this.initialElements = document.querySelectorAll('.experience__wrapper')
+    this.experiences = []
+    this.movingElements = {
+      number: 4
+    }
 
     this.create()
   }
@@ -24,36 +29,56 @@ export default class Experiences {
     this.childHeight = this.elements[0].offsetHeight
 
     // get how many element in the screen
-    this.numberElement = this.viewportHeight / this.childHeight
+    this.numberElement = Math.round(this.viewportHeight / this.childHeight)
+  }
 
-    console.log('ooooo', this.viewportHeight, this.numberElement)
+  animateOut(entry, index) {
+    console.log('outout')
+  }
+
+  async animateIn(entry, index) {
+    console.log('in')
+    let clone = entry.target.cloneNode(true)
+    this.element.appendChild(clone)
+
+    this.element = document.querySelector('.experiences')
   }
 
   create() {
-    each(this.elements, (entry, key) => {
-      new Experience(entry, this.elements, this.element)
-    })
-
     this.handleBounds()
+
+    // each(this.elements, (element, index) => {
+    //   this.experiences.push(new Experience(entry, index))
+    // })
   }
 
-  update({ direction }) {
-    // si scroll vers le bas
+  update({ direction, scroll }) {
+    this.direction = direction
 
-    // this.elements.forEach((el, i) => {
+    if (this.element.getBoundingClientRect().bottom < window.innerHeight) {
+      // if (this.wrapperHeight < window.innerHeight * 2) {
+      /**
+       * clone node
+       */
+      for (let i = 0; i < this.initialElements.length; i++) {
+        this.element.appendChild(this.initialElements[i].cloneNode(true))
+        this.wrapperHeight = this.element.offsetHeight
 
-    // })
-    if (direction === 'down') {
+        /**
+         * update (this.wrapperHeight
+         */
+      }
+      // }
     }
-    // regarder combien il y a d'element dans window
-    // regarder la hauteur d'un element
-    // si scroll vers le bas -> cloner le premier element en fin de liste
 
-    //
-    // le retirer de la liste pour le mettre en bas de la liste
-    // map(this.elements, (element, index) => {
-    // })
-    // if (direction === 'down') {
-    // }
+    // this.onOut()
   }
 }
+
+// viewport 700
+
+// WRAPPER 700
+
+// SCROLL 100
+
+// W + S 800
