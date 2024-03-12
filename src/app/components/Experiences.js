@@ -46,6 +46,27 @@ export default class Experiences {
 
   create() {
     this.handleBounds()
+    // const arrElements = Array.from(this.element.childNodes)
+    // const clone = this.element.childNodes[3]
+    // arrElements.push(clone)
+
+    if (this.wrapperHeight < window.innerHeight * 2) {
+      /**
+       * clone node
+       */
+      for (let i = 0; i < this.initialElements.length; i++) {
+        this.element.appendChild(this.initialElements[i].cloneNode(true))
+        this.wrapperHeight = this.element.offsetHeight
+      }
+    }
+
+    this.elementListArray = Array.from(this.element.childNodes)
+    // direction down
+    this.elementListArray = [...this.elementListArray, this.elementListArray[0]]
+    this.elementListArray.shift()
+    console.log('aaaa', this.elementListArray)
+    // direction down
+    // const essai = [...array, array[0]].pop()
 
     // each(this.elements, (element, index) => {
     //   this.experiences.push(new Experience(entry, index))
@@ -56,20 +77,16 @@ export default class Experiences {
     this.direction = direction
 
     if (this.element.getBoundingClientRect().bottom < window.innerHeight) {
-      // if (this.wrapperHeight < window.innerHeight * 2) {
-      /**
-       * clone node
-       */
-      for (let i = 0; i < this.initialElements.length; i++) {
-        this.element.appendChild(this.initialElements[i].cloneNode(true))
-        this.wrapperHeight = this.element.offsetHeight
-
-        /**
-         * update (this.wrapperHeight
-         */
-      }
-      // }
+      // this.element.childNodes[0].getBoundingClientRect().bottom
     }
+    console.log('bounds', scroll)
+
+    map(Array.from(this.element.childNodes), (el) => {
+      if (this.element.getBoundingClientRect().bottom < window.innerHeight) {
+        // this.element.childNodes[0].getBoundingClientRect().bottom
+        // const newElementList = [...this.element.childNodes]
+      }
+    })
 
     // this.onOut()
   }

@@ -16,6 +16,8 @@ export default class Page {
   }
 
   create() {
+console.log('gsap', GSAP)
+
     this.element = document.querySelector(this.selector)
     this.elements = {}
 
@@ -56,7 +58,6 @@ export default class Page {
     } else if (this.scroll.current < this.scroll.target) {
       this.direction = 'down'
     }
-
     this.scroll.target = GSAP.utils.clamp(
       0,
       this.scroll.limit,
