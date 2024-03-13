@@ -25,7 +25,7 @@ console.log('gsap', GSAP)
       current: 0,
       target: 0,
       last: 0,
-      limit: 0
+      limit: 1000
     }
 
     each(this.selectorChildren, (entry, key) => {
@@ -58,6 +58,7 @@ console.log('gsap', GSAP)
     } else if (this.scroll.current < this.scroll.target) {
       this.direction = 'down'
     }
+
     this.scroll.target = GSAP.utils.clamp(
       0,
       this.scroll.limit,
