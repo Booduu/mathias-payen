@@ -49,6 +49,7 @@ console.log('gsap', GSAP)
 
   onWheel({ pixelY }) {
     this.scroll.target += pixelY
+
   }
 
   update() {
@@ -60,22 +61,24 @@ console.log('gsap', GSAP)
     }
 
     this.scroll.target = GSAP.utils.clamp(
-      0,
+      -1000,
       this.scroll.limit,
       this.scroll.target
     )
+
     this.scroll.current = GSAP.utils.interpolate(
       this.scroll.current,
       this.scroll.target,
       0.1
     )
 
-    if (this.scroll.current < 0.01) {
-      this.scroll.current = 0
-    }
-    if (this.elements.wrapper) {
-      this.elements.wrapper.style[this.transformPrefix] =
-        `translateY(-${this.scroll.current}px)`
-    }
+    // if (this.scroll.current < 0.01) {
+    //   this.scroll.current = 0
+    // }
+
+    // if (this.elements.wrapper) {
+    //   this.elements.wrapper.style[this.transformPrefix] =
+    //     `translateY(-${Math.round(this.scroll.current)}px)`
+    // }
   }
 }

@@ -73,6 +73,7 @@ class App {
 
   onWheel(event) {
     const normalizeWheel = NormalizeWheel(event)
+
     if (this.page && this.page.update) {
       this.page.onWheel(normalizeWheel)
     }

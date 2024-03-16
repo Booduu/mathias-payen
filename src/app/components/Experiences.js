@@ -1,7 +1,7 @@
 // import Animation from '../classes/Animation'
 import each from 'lodash/each'
 import map from 'lodash/map'
-
+import Prefix from 'Prefix'
 import Experience from './Experience'
 
 export default class Experiences {
@@ -13,6 +13,7 @@ export default class Experiences {
     this.movingElements = {
       number: 4
     }
+    this.transformPrefix = Prefix('transform')
 
     this.create()
   }
@@ -26,7 +27,7 @@ export default class Experiences {
     this.viewportHeight = window.innerHeight
 
     // get the height of an experience
-    this.childHeight = this.elements[0].offsetHeight
+    this.childHeight = Math.round(this.elements[0].offsetHeight)
 
     // get how many element in the screen
     this.numberElement = Math.round(this.viewportHeight / this.childHeight)
@@ -46,37 +47,39 @@ export default class Experiences {
 
   create() {
     this.handleBounds()
-    // const arrElements = Array.from(this.element.childNodes)
-    // const clone = this.element.childNodes[3]
-    // arrElements.push(clone)
 
-    if (this.wrapperHeight < window.innerHeight * 2) {
-      /**
-       * clone node
-       */
-      for (let i = 0; i < this.initialElements.length; i++) {
-        this.element.appendChild(this.initialElements[i].cloneNode(true))
-        this.wrapperHeight = this.element.offsetHeight
-      }
-    }
+    map(this.element.childNodes, (el, index) => {
+      // el.style[this.transformPrefix] =
+      //   `translateY(${index * this.childHeight}px)`
+      el.style.top = `${index * this.childHeight}px`
+    })
+
+    // if (this.wrapperHeight < window.innerHeight * 2) {
+    //   /**
+    //    * clone node
+    //    */
+    //   for (let i = 0; i < this.initialElements.length; i++) {
+    //     this.element.appendChild(this.initialElements[i].cloneNode(true))
+    //     this.wrapperHeight = this.element.offsetHeight
+    //   }
+    // }
   }
 
   update({ direction, scroll }) {
     this.direction = direction
 
-    if (this.element.getBoundingClientRect().bottom < window.innerHeight) {
-      this.elementListArray = Array.from(this.element.childNodes)
-      this.elementListArray = [
-        ...this.elementListArray,
-        this.elementListArray[0]
-      ]
+    map(this.element.childNodes, (el) => {
+      if (el.getBoundingClientRect().top < 0) {
+        el.style.top = `300px`
+      } else {
+      }
+      el.style[this.transformPrefix] = `translateY(${scroll.current}px)`
+    })
 
-      const elementToMove = this.elementListArray[0]
-
-      this.element.appendChild(elementToMove.cloneNode(true))
-      this.elementListArray.shift()
-    }
-
+    // if (this.elements.wrapper) {
+    //   this.elements.wrapper.style[this.transformPrefix] =
+    //     `translateY(-${Math.round(this.scroll.current)}px)`
+    // }
   }
 }
 
