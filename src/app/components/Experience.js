@@ -1,29 +1,52 @@
 import Animation from '../classes/Animation'
-
+import Prefix from 'Prefix'
 export default class Experience extends Animation {
-  constructor(element, index) {
+  constructor({ element, index, top }) {
     super({ element })
+    this.element = document.querySelector('.experiences')
     this.element = element
     this.index = index
+    this.top = top
+    this.translateY = 0
+
+    this.transformPrefix = Prefix('transform')
+
+    this.create()
+    this.update()
   }
 
-  animateOut(entry) {
-    // this.cloneElement(entry.target)
-    // this.createObserver()
-    // let clone = entry.target.cloneNode(true)
-    // this.parent.appendChild(clone)
-    // this.elements = Array.from(this.elements).push(clone)
-  }
+  animateOut(entry) {}
 
-  animateIn(entry) {
-    console.log('in')
-  }
+  animateIn(entry) {}
 
   create() {
-    console.log('element')
+    this.element.style.top = `${this.top}px`
   }
 
-  update() {
-    console.log('XP upda')
+  onResize() {
+    this.element.style.top =
+      this.element.getBoundingClientRect().height * this.index
+    console.log('resize xp oo')
+  }
+
+  updateTranslateY(position) {}
+
+  update(direction, scroll, wrapperHeight) {
+    if (direction === 'up') {
+      if (this.element.getBoundingClientRect().top < 0) {
+        console.log('scroll', direction, wrapperHeight)
+
+        this.translateY += wrapperHeight
+      }
+    }
+
+    if (direction === 'down') {
+      if (this.element.getBoundingClientRect().bottom > window.innerHeight) {
+        this.translateY -= wrapperHeight
+      }
+    }
+
+    this.element.style[this.transformPrefix] =
+      `translateY(${scroll?.current + this.translateY}px)`
   }
 }

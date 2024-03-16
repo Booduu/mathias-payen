@@ -16,8 +16,6 @@ export default class Page {
   }
 
   create() {
-console.log('gsap', GSAP)
-
     this.element = document.querySelector(this.selector)
     this.elements = {}
 
@@ -49,7 +47,6 @@ console.log('gsap', GSAP)
 
   onWheel({ pixelY }) {
     this.scroll.target += pixelY
-
   }
 
   update() {

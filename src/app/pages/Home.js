@@ -16,8 +16,8 @@ export default class Home extends Page {
   }
 
   onResize() {
-    if (this.experiences && this.experiences.handleBounds) {
-      this.experiences.handleBounds()
+    if (this.experiences && this.experiences.onResize) {
+      this.experiences.onResize()
     }
   }
 
