@@ -57,16 +57,10 @@ export default class Page {
       this.direction = 'down'
     }
 
-    this.scroll.target = GSAP.utils.clamp(
-      -1000,
-      this.scroll.limit,
-      this.scroll.target
-    )
-
     this.scroll.current = GSAP.utils.interpolate(
       this.scroll.current,
       this.scroll.target,
-      0.1
+      0.05
     )
 
     // if (this.scroll.current < 0.01) {

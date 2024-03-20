@@ -34,8 +34,6 @@ export default class Experience extends Animation {
   update(direction, scroll, wrapperHeight) {
     if (direction === 'up') {
       if (this.element.getBoundingClientRect().top < -100) {
-        console.log('scroll', direction, wrapperHeight)
-
         this.translateY += wrapperHeight
       }
     }
