@@ -20,12 +20,13 @@ export default class Experience extends Animation {
   animateIn(entry) {}
 
   create() {
-    this.element.style.top = `${this.top}px`
+    // this.element.style.top = `${this.top}px`
   }
 
   onResize() {
     const newHeight = this.element.getBoundingClientRect().height * this.index
-    this.element.style.top = `${newHeight}px`
+    // this.element.style.top = `${newHeight}px`
+    this.translateY = 0
     return this.element.getBoundingClientRect().height
   }
 

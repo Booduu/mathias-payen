@@ -18,6 +18,12 @@ export default class Home extends Page {
   onResize() {
     if (this.experiences && this.experiences.onResize) {
       this.experiences.onResize()
+      this.scroll = {
+        current: 0,
+        target: 0,
+        last: 0,
+        limit: 1000
+      }
     }
   }
 
