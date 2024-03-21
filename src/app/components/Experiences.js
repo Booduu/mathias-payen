@@ -8,29 +8,13 @@ export default class Experiences {
   constructor() {
     this.element = document.querySelector('.experiences')
     this.elements = document.querySelectorAll('.experience__wrapper')
-    this.initialElements = document.querySelectorAll('.experience__wrapper')
-    this.movingElements = {
-      number: 4
-    }
+   
     this.transformPrefix = Prefix('transform')
 
     this.create()
   }
 
   handleElements(list, entry) {}
-
-  // handleBounds() {
-  //   this.wrapperHeight = this.element.offsetHeight
-
-  //   //get the screen height
-  //   this.viewportHeight = window.innerHeight
-
-  //   // get the height of an experience
-  //   this.childHeight = Math.round(this.elements[0].offsetHeight)
-
-  //   // get how many element in the screen
-  //   this.numberElement = Math.round(this.viewportHeight / this.childHeight)
-  // }
 
   animateOut(entry, index) {
     // console.log('outout')
@@ -45,8 +29,7 @@ export default class Experiences {
       return new Experience({
         element,
         index,
-        top: element.getBoundingClientRect().height * index,
-        wrapperHeight: this.wrapperHeight
+        top: element.getBoundingClientRect().height * index
       })
     })
 
@@ -54,7 +37,13 @@ export default class Experiences {
   }
 
   onResize() {
-    // map(this.experiences, (experience, index) => experience.onResize())
+    this.wrapperHeight = 0
+    map(this.experiences, (experience, index) => {
+      experience.onResize()
+      this.wrapperHeight += experience.element.offsetHeight
+    })
+
+    this.element.style.height = `${this.wrapperHeight}px`
   }
 
   update({ direction, scroll }) {

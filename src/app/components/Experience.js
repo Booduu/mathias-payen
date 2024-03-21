@@ -24,9 +24,9 @@ export default class Experience extends Animation {
   }
 
   onResize() {
-    this.element.style.top =
-      this.element.getBoundingClientRect().height * this.index
-    console.log('resize xp oo')
+    const newHeight = this.element.getBoundingClientRect().height * this.index
+    this.element.style.top = `${newHeight}px`
+    return this.element.getBoundingClientRect().height
   }
 
   updateTranslateY(position) {}
@@ -37,7 +37,6 @@ export default class Experience extends Animation {
         this.translateY += wrapperHeight
       }
     }
-
     if (direction === 'down') {
       if (
         this.element.getBoundingClientRect().bottom >
