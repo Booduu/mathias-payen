@@ -62,14 +62,5 @@ export default class Page {
       this.scroll.target,
       0.05
     )
-
-    // if (this.scroll.current < 0.01) {
-    //   this.scroll.current = 0
-    // }
-
-    // if (this.elements.wrapper) {
-    //   this.elements.wrapper.style[this.transformPrefix] =
-    //     `translateY(-${Math.round(this.scroll.current)}px)`
-    // }
   }
 }

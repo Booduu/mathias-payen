@@ -8,7 +8,7 @@ export default class Experiences {
   constructor() {
     this.element = document.querySelector('.experiences')
     this.elements = document.querySelectorAll('.experience__wrapper')
-   
+
     this.transformPrefix = Prefix('transform')
 
     this.create()
@@ -16,9 +16,7 @@ export default class Experiences {
 
   handleElements(list, entry) {}
 
-  animateOut(entry, index) {
-    // console.log('outout')
-  }
+  animateOut(entry, index) {}
 
   async animateIn(entry, index) {}
 
