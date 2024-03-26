@@ -1,5 +1,7 @@
 import Animation from '../classes/Animation'
 import Prefix from 'Prefix'
+import GSAP from 'gsap'
+
 export default class Experience extends Animation {
   constructor({ element, index, top }) {
     super({ element })
@@ -15,9 +17,24 @@ export default class Experience extends Animation {
     this.update()
   }
 
-  animateOut(entry) {}
+  animateOut(entry) {
+    // GSAP.to(entry.target, { autoAlpha: 0, duration: 0.5 })
+  }
 
-  animateIn(entry) {}
+  async animateIn(entry) {
+    GSAP.fromTo(
+      entry.target,
+      {
+        autoAlpha: 0,
+        duration: 1
+      },
+      {
+        autoAlpha: 1,
+        duration: 1
+        // ease: 'expo.out'
+      }
+    )
+  }
 
   create() {}
 

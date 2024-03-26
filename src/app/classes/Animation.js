@@ -4,11 +4,13 @@ export default class Animation {
     // super()
 
     this.createObserver()
+
+    this.animateIn.bind(this);
   }
 
   createObserver() {
     this.observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
+      entries.forEach(async (entry, index) => {
         if (entry.isIntersecting) {
           this.animateIn(entry, index)
         } else {
@@ -18,7 +20,12 @@ export default class Animation {
     })
 
     this.observer.observe(this.element, {
-      rootMargin: '300px'
+      // rootMargin: '0px'
+      treshold: 0.5
     })
   }
+
+  animateIn() {}
+
+  animateOut() {}
 }
