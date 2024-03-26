@@ -24,7 +24,9 @@ router.get('/', async function (req, res, next) {
   pro = getReverseSortedArrayByDate(pro)
   portfolio = getReverseSortedArrayByDate(portfolio)
 
-  res.render('pages/home', { experiences: [...pro, ...portfolio] })
+  res.render('pages/home', {
+    experiences: [...pro, ...portfolio, ...pro, ...portfolio]
+  })
   // res.render('pages/home', { experiences: [pro[0], pro[1]] })
 })
 
