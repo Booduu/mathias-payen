@@ -1,7 +1,6 @@
 import Animation from '../classes/Animation'
 import Prefix from 'Prefix'
 import GSAP from 'gsap'
-
 export default class Experience extends Animation {
   constructor({ element, index, top }) {
     super({ element })
@@ -22,7 +21,8 @@ export default class Experience extends Animation {
   }
 
   async animateIn(entry) {
-    GSAP.fromTo(
+    let tl = GSAP.timeline({})
+    tl.fromTo(
       entry.target,
       {
         autoAlpha: 0,
