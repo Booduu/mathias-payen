@@ -79,6 +79,12 @@ class App {
     }
   }
 
+  onTouchMove(event) {
+    if (this.page && this.page.update) {
+      this.page.onWheel(event)
+    }
+  }
+
   onResize() {
     if (this.page && this.page.onResize) {
       this.page.onResize()
@@ -87,6 +93,8 @@ class App {
 
   addEventListeners() {
     window.addEventListener('mousewheel', this.onWheel.bind(this))
+    window.addEventListener('touchmove', this.onTouchMove.bind(this))
+
     window.addEventListener('resize', this.onResize.bind(this))
   }
 
